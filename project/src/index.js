@@ -1,11 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+// import libraries to routing
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
+import Home from './routes/Home';
+import {About} from './routes/About';
+import {Posts} from './routes/Posts';
+import {AddPost} from './routes/AddPost';
+import {PostDetails} from './routes/PostDetails';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Home/>}></Route>
+      <Route path="/about" element={<About/>}></Route>
+      <Route path="/posts-list" element={<Posts/>}></Route>
+      <Route path="/post-details" element={<PostDetails/>}></Route>
+      <Route path="/add-post" element={<AddPost/>}></Route>
+    </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
