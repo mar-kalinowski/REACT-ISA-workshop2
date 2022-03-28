@@ -8,7 +8,7 @@ export const Posts = () => {
     const [ posts, setPosts ] = useState([])
 
     useEffect(() => {
-        fetch('https://localhost:3000/posts')
+        fetch('localhost:3000/posts')
         .then(r => r.json())
         .then(posts => setPosts(posts));
     }, []);
@@ -21,7 +21,14 @@ export const Posts = () => {
                 <Link to={postURL} key={post.id}>{post.title}</Link>
             </div>
         )
-    })
+    });
+
+    return (
+        <div>
+            <h1>Lista postów</h1>
+            {renderPosts()}
+        </div>
+    )
 }
 
 
